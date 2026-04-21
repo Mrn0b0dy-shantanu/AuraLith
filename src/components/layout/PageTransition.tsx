@@ -1,0 +1,9 @@
+import { ReactNode } from 'react';
+
+export function PageTransition({ children, className = '' }: { children: ReactNode; className?: string }) {
+  return (
+    <div className={`min-h-screen ${className}`}>
+      {children}
+    </div>
+  );
+}
