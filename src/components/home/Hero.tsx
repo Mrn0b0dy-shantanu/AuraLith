@@ -924,7 +924,7 @@ export default function Hero() {
       ref={containerRef}
       className="relative w-full h-[125vh] font-sans selection:bg-[#22c55e]/30"
     >
-      <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center">
+      <div className="sticky top-[8vh] w-full h-screen flex flex-col items-center justify-center">
         {/* Globe with Parallax */}
         <Globe scrollYProgress={scrollYProgress} />
 

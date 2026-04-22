@@ -235,10 +235,9 @@ export const NavbarLogo = () => {
   return (
     <Link
       to="/"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black dark:text-black"
+      className="relative z-20 mr-4 flex items-center px-2 py-1 text-sm font-normal text-black dark:text-black"
     >
-      <div className="w-6 h-6 rounded-md bg-linear-to-tr from-[#22c55e] to-[#8b5cf6] shadow-[0_0_15px_rgba(139,92,246,0.5)] border border-white/20" />
-      <span className="font-mono text-white dark:text-white uppercase tracking-widest text-xs">SYS.AURALITH</span>
+      <span className="font-sans font-bold text-white dark:text-white tracking-tight text-lg uppercase">AuraLith</span>
     </Link>
   );
 };
