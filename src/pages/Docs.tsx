@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { PageTransition } from '../components/layout/PageTransition';
-import { Terminal, Book, Code2, Cpu, Network, Lock, ArrowRight, Copy, Check } from 'lucide-react';
+import { Terminal, Book, Code2, Cpu, Network, Lock, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { SystemContainer } from '../components/ui/SystemContainer';

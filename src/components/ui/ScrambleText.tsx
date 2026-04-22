@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 interface ScrambleTextProps {
@@ -19,10 +19,10 @@ export function ScrambleText({ text, className }: ScrambleTextProps) {
       clearInterval(intervalRef.current as number);
 
       intervalRef.current = window.setInterval(() => {
-        setDisplayText((prev) =>
+        setDisplayText(() =>
           text
             .split('')
-            .map((letter, index) => {
+            .map((_, index) => {
               if (index < iteration) {
                 return text[index];
               }

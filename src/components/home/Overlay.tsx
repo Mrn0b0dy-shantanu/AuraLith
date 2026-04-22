@@ -1,27 +1,16 @@
 import { useStore } from "../../store";
 import { motion, Variants } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Hero from "./Hero";
 
 export function Overlay() {
   const { inputText } = useStore();
-  const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
-    let animationFrameId: number;
-    const animate = () => {
-      setRotation((prevRotation) => (prevRotation + 0.15) % 360);
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animationFrameId = requestAnimationFrame(animate);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
+    // Rotation logic removed as it was unused
   }, []);
 
-  const gradientColors = ["#9614d0", "#b525cc", "#8b5cf6"].join(", ");
+
 
   const textVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, y: 40 },

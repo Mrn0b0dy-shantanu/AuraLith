@@ -56,7 +56,6 @@ export default function AppNavbar() {
 
               <MobileNavMenu
                 isOpen={isMenuOpen}
-                onClose={() => setIsMenuOpen(false)}
                 className=""
               >
                 {navLinks.map((item) => (

@@ -3,7 +3,6 @@ import {
   Float,
   Sparkles,
   MeshDistortMaterial,
-  Line,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
@@ -43,7 +42,7 @@ const TransmissionPhase = () => {
     }));
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     const offset = scroll.offset;
     const isActive = offset >= 0.15 && offset < 0.45;
 
@@ -156,7 +155,7 @@ const DeconstructionPhase = () => {
     return pos;
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     const offset = scroll.offset;
     const isActive = offset >= 0.7 && offset < 0.8;
 
@@ -233,7 +232,7 @@ const TransformationPhase = () => {
   const coreRef = useRef<THREE.Mesh>(null);
   const coreGlowRef = useRef<THREE.Mesh>(null);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     const offset = scroll.offset;
     const isActive = offset >= 0.8;
 

@@ -3,7 +3,6 @@ import { PageTransition } from '../components/layout/PageTransition';
 import { Zap, Shield, Cpu, Activity } from 'lucide-react';
 import { useRef, useEffect } from 'react';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
-import { ScrambleText } from '../components/ui/ScrambleText';
 import { SystemContainer } from '../components/ui/SystemContainer';
 
 function AnimatedCounter({ value, suffix = '', duration = 2 }: { value: number, suffix?: string, duration?: number }) {

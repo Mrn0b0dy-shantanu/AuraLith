@@ -3,13 +3,11 @@ import { useEffect, useRef } from 'react';
 export default function Particles({
   particleColors = ["#FFFFFF"],
   particleCount = 150,
-  particleSpread = 10,
   speed = 0.15,
   particleBaseSize = 1.5,
 }: {
   particleColors?: string[];
   particleCount?: number;
-  particleSpread?: number;
   speed?: number;
   particleBaseSize?: number;
 }) {

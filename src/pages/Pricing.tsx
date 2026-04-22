@@ -1,9 +1,6 @@
-import { motion } from 'framer-motion';
 import { PageTransition } from '../components/layout/PageTransition';
-import { Check } from 'lucide-react';
 import { useState } from 'react';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
-import { ScrambleText } from '../components/ui/ScrambleText';
 import { SystemContainer } from '../components/ui/SystemContainer';
 
 const plans = [

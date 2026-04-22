@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useMotionValue } from "motion/react";
+import { motion, useTransform, useMotionValue } from "motion/react";
 import { geoEquirectangular, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import { useScroll as useThreeScroll } from "@react-three/drei";
