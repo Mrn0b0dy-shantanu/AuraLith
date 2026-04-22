@@ -14,7 +14,7 @@ export default function EcosystemIntegration() {
   return (
     <section
       ref={containerRef}
-      className="w-full min-h-screen py-32 flex flex-col items-center justify-center relative border-t border-white/10"
+      className="w-full min-h-screen py-32 flex flex-col items-center justify-center relative"
     >
       <motion.div
         style={{ opacity, y }}

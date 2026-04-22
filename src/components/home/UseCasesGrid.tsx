@@ -69,7 +69,7 @@ export default function UseCasesGrid() {
   return (
     <section 
       ref={containerRef}
-      className="w-full min-h-screen py-32 flex flex-col items-center justify-center relative border-t border-white/10"
+      className="w-full min-h-screen py-32 flex flex-col items-center justify-center relative"
     >
       <div className="max-w-7xl w-full px-4">
         <h2 className="text-xs tracking-[0.4em] text-white/50 uppercase mb-6 font-mono font-medium border-b border-white/10 pb-2 inline-block">

@@ -271,7 +271,8 @@ const TransformationPhase = () => {
     <group ref={groupRef} scale={0.001} visible={false}>
       <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
         <mesh ref={coreRef} position={[0, 0, 0]}>
-          <icosahedronGeometry args={[1, 32]} />
+          {/* Reduced detail from 32 to 12 to optimize MeshDistortMaterial performance */}
+          <icosahedronGeometry args={[1, 12]} />
           <MeshDistortMaterial
             color="#22c55e"
             envMapIntensity={2}
@@ -286,7 +287,8 @@ const TransformationPhase = () => {
           />
         </mesh>
         <mesh ref={coreGlowRef} position={[0, 0, -0.5]} scale={1.5}>
-          <sphereGeometry args={[1, 32, 32]} />
+          {/* Reduced segments from 32/32 to 16/16 as this is just an additive glow */}
+          <sphereGeometry args={[1, 16, 16]} />
           <meshBasicMaterial
             color="#22c55e"
             transparent

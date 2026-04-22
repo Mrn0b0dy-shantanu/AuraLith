@@ -91,10 +91,11 @@ const STYLES = `
 
 /* Giant Background Text Masking */
 .footer-giant-bg-text {
-  font-size: 21vw;
+  font-size: clamp(4rem, 21vw, 40rem);
   line-height: 0.75;
   font-weight: 900;
   letter-spacing: -0.05em;
+  text-align: center;
   color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
   background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 60%);
@@ -209,7 +210,6 @@ export function CinematicFooter() {
         { y: "10vh", scale: 0.8, opacity: 0 },
         {
           y: "0vh",
-          x: "-100vh",
           scale: 1,
           opacity: 1,
           ease: "power1.out",
@@ -269,11 +269,13 @@ export function CinematicFooter() {
           <div className="footer-bg-grid absolute inset-0 z-0 pointer-events-none" />
 
           {/* Giant background text */}
-          <div
-            ref={giantTextRef}
-            className="footer-giant-bg-text absolute -bottom-[1vh] left-1/2 -translate-x-1/2 whitespace-nowrap z-0 pointer-events-none select-none font-sans tracking-tighter"
-          >
-            AURALITH
+          <div className="absolute w-full left-0 -bottom-[1vh] flex justify-center overflow-hidden z-0 pointer-events-none select-none">
+            <div
+              ref={giantTextRef}
+              className="footer-giant-bg-text font-sans tracking-tighter whitespace-nowrap"
+            >
+              AURALITH
+            </div>
           </div>
 
           {/* 2. Main Center Content */}
@@ -358,9 +360,14 @@ export function CinematicFooter() {
               <span className="text-white/40 text-[10px] md:text-xs font-semibold uppercase tracking-widest">
                 by
               </span>
-              <span className="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest ml-1">
-                Auralith
-              </span>
+              <a 
+                href="https://shantau-biswas-portfolio.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest ml-1 hover:text-[#22c55e] transition-colors duration-300"
+              >
+                Shantanu Biswas
+              </a>
             </div>
 
             {/* Back to top */}

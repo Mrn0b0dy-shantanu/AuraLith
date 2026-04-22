@@ -23,7 +23,7 @@ export default function TelemetryDashboard() {
   return (
     <section
       ref={containerRef}
-      className="w-full min-h-screen py-32 pb-50 flex flex-col items-center justify-center relative border-t border-white/10"
+      className="w-full min-h-screen py-32 pb-50 flex flex-col items-center justify-center relative"
     >
       <div className="max-w-7xl w-full px-4">
         <div className="bg-[#0a0a0a]/60 backdrop-blur-md border border-white/10 rounded-[40px] p-8 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center gap-16">
@@ -101,19 +101,7 @@ export default function TelemetryDashboard() {
                 />
               ))}
 
-              {/* Scanning Line */}
-              <motion.line
-                x1="100"
-                y1="100"
-                x2="100"
-                y2="10"
-                stroke="#22c55e"
-                strokeWidth="1"
-                strokeOpacity="0.2"
-                style={{ originX: "100px", originY: "100px" }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              />
+
 
               {/* Central Nucleus */}
               <motion.circle
