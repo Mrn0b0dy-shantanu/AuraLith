@@ -937,7 +937,7 @@ export default function Hero() {
           className="relative z-20 flex flex-col items-center text-center px-4 w-full max-w-7xl mt-[-10vh]"
         >
           <motion.h1
-            className="text-[14vw] md:text-[12vw] font-black tracking-tighter text-white leading-none cursor-default relative z-30 drop-shadow-2xl flex justify-center"
+            className="text-[14vw] md:text-[12vw] font-black text-white leading-none cursor-default relative z-30 drop-shadow-2xl flex justify-center gap-[0.1em]"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onTouchStart={() => setIsHovered(!isHovered)}
@@ -951,7 +951,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
           >
-            {"kontenta".split("").map((letter, i) => (
+            {"AURALITH".split("").map((letter, i) => (
               <motion.span
                 key={i}
                 variants={{

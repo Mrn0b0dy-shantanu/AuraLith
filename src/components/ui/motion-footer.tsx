@@ -192,11 +192,14 @@ MagneticButton.displayName = "MagneticButton";
 // 3. MAIN COMPONENT
 // -------------------------------------------------------------------------
 
+import { useLocation } from "react-router-dom";
+
 export function CinematicFooter() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const giantTextRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -243,6 +246,15 @@ export function CinematicFooter() {
 
     return () => ctx.revert();
   }, []);
+
+  useEffect(() => {
+    // Refresh ScrollTrigger when location changes so that the trigger positions
+    // are recalculated based on the new page height.
+    const timeout = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500); // 500ms delay to allow page transition to complete
+    return () => clearTimeout(timeout);
+  }, [location.pathname]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
