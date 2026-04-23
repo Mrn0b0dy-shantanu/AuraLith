@@ -21,7 +21,7 @@ export function Glow() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute top-[-200px] w-[140vw] max-w-[1200px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#22c55e]/20 via-[#22c55e]/5 to-transparent blur-[100px] rounded-[100%]"
+            className="absolute top-[-200px] w-[140vw] max-w-[1200px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#22c55e]/20 via-[#22c55e]/5 to-transparent blur-[100px] rounded-[100%] will-change-transform will-change-opacity transform-gpu"
           />
         )}
         {theme === 'purple' && (
@@ -31,7 +31,7 @@ export function Glow() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute top-[-200px] w-[140vw] max-w-[1200px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#8b5cf6]/20 via-[#8b5cf6]/5 to-transparent blur-[100px] rounded-[100%]"
+            className="absolute top-[-200px] w-[140vw] max-w-[1200px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#8b5cf6]/20 via-[#8b5cf6]/5 to-transparent blur-[100px] rounded-[100%] will-change-transform will-change-opacity transform-gpu"
           />
         )}
       </AnimatePresence>

@@ -19,9 +19,9 @@ const ModelGraphic = ({
     return (
       <div className="absolute inset-0 flex flex-col gap-[6px] p-4 pt-10 opacity-60">
         <motion.div
-          className="h-1 w-[40%] rounded-full"
+          className="h-1 w-[40%] rounded-full origin-left"
           style={{ backgroundColor: color }}
-          animate={isVisible ? { width: ["0%", "40%", "20%"] } : {}}
+          animate={isVisible ? { scaleX: [0, 1, 0.5] } : {}}
           transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
         />
         <motion.div
@@ -30,9 +30,9 @@ const ModelGraphic = ({
           transition={{ duration: 1.5, repeat: Infinity }}
         />
         <motion.div
-          className="h-1 w-[25%] rounded-full"
+          className="h-1 w-[25%] rounded-full origin-left"
           style={{ backgroundColor: color }}
-          animate={isVisible ? { width: ["0%", "25%", "10%"] } : {}}
+          animate={isVisible ? { scaleX: [0, 1, 0.4] } : {}}
           transition={{
             duration: 2.5,
             repeat: Infinity,
@@ -70,7 +70,7 @@ const ModelGraphic = ({
           <motion.div
             className="absolute top-0 left-0 w-full h-[1px] shadow-[0_2px_8px_rgba(255,255,255,0.5)]"
             style={{ backgroundColor: color }}
-            animate={isVisible ? { top: ["0%", "100%", "0%"] } : {}}
+            animate={isVisible ? { y: [0, 80, 0] } : {}}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           />
           <div
@@ -99,11 +99,11 @@ const ModelGraphic = ({
         {Array.from({ length: 12 }).map((_, i) => (
           <motion.div
             key={i}
-            className="w-1.5 rounded-full"
-            style={{ backgroundColor: color }}
+            className="w-1.5 rounded-full origin-bottom"
+            style={{ backgroundColor: color, height: "100%" }}
             animate={
               isVisible
-                ? { height: ["10%", `${40 + Math.random() * 60}%`, "10%"] }
+                ? { scaleY: [0.1, 0.4 + Math.random() * 0.6, 0.1] }
                 : {}
             }
             transition={{
@@ -485,6 +485,9 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
 
     let animationFrameId: number;
     let points: { x: number; y: number; z: number; isLand: boolean }[] = [];
+    let projectedPoints: { x: number; y: number; z: number; isLand: boolean; p: any }[] = [];
+    let cachedGradient: CanvasGradient | null = null;
+    let cachedRadius = 0;
     let phi = 0;
 
     
@@ -641,6 +644,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
         }
 
         points = newPoints;
+        projectedPoints = newPoints.map(p => ({ x: 0, y: 0, z: 0, isLand: p.isLand, p }));
       } catch (error) {
         console.error("Failed to initialize globe data:", error);
       }
@@ -664,18 +668,15 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
       const cx = logicalWidth / 2;
       const cy = logicalHeight / 2;
 
-      
-      const gradient = ctx.createRadialGradient(
-        cx,
-        cy,
-        radius * 0.5,
-        cx,
-        cy,
-        radius * 1.1,
-      );
-      gradient.addColorStop(0, "rgba(255, 255, 255, 0.04)");
-      gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
-      ctx.fillStyle = gradient;
+      if (!cachedGradient || cachedRadius !== radius) {
+        cachedGradient = ctx.createRadialGradient(
+          cx, cy, radius * 0.5, cx, cy, radius * 1.1
+        );
+        cachedGradient.addColorStop(0, "rgba(255, 255, 255, 0.04)");
+        cachedGradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+        cachedRadius = radius;
+      }
+      ctx.fillStyle = cachedGradient;
       ctx.fillRect(0, 0, logicalWidth, logicalHeight);
 
       const cosPhi = Math.cos(phi);
@@ -684,13 +685,17 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
       const cosTilt = Math.cos(tilt);
       const sinTilt = Math.sin(tilt);
 
-      const projectedPoints = points.map((p) => {
+      for (let i = 0; i < projectedPoints.length; i++) {
+        const pp = projectedPoints[i];
+        const p = pp.p;
         const x1 = p.x * cosPhi - p.z * sinPhi;
         const z1 = p.x * sinPhi + p.z * cosPhi;
         const y2 = p.y * cosTilt - z1 * sinTilt;
         const z2 = p.y * sinTilt + z1 * cosTilt;
-        return { x: x1, y: y2, z: z2, isLand: p.isLand };
-      });
+        pp.x = x1;
+        pp.y = y2;
+        pp.z = z2;
+      }
 
       
       projectedPoints.sort((a, b) => a.z - b.z);

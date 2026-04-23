@@ -42,6 +42,10 @@ const TransmissionPhase = () => {
     }));
   }, []);
 
+  const tempUp = useMemo(() => new THREE.Vector3(0, 1, 0), []);
+  const tempAxis = useMemo(() => new THREE.Vector3(), []);
+  const tempRadialOffset = useMemo(() => new THREE.Vector3(), []);
+
   useFrame((_, delta) => {
     const offset = scroll.offset;
     const isActive = offset >= 0.15 && offset < 0.45;
@@ -80,23 +84,15 @@ const TransmissionPhase = () => {
           const point = curve.getPointAt(data.progress);
           const tangent = curve.getTangentAt(data.progress);
 
-          const up = new THREE.Vector3(0, 1, 0);
-          const axis = new THREE.Vector3()
-            .crossVectors(up, tangent)
-            .normalize();
-          const radialOffset = new THREE.Vector3()
-            .crossVectors(tangent, axis)
-            .normalize();
+          tempAxis.crossVectors(tempUp, tangent).normalize();
+          tempRadialOffset.crossVectors(tangent, tempAxis).normalize();
 
-          radialOffset
+          tempRadialOffset
             .applyAxisAngle(tangent, data.angle)
             .multiplyScalar(data.radius);
 
-          dummy.position.copy(point).add(radialOffset);
-          dummy.quaternion.setFromUnitVectors(
-            new THREE.Vector3(0, 1, 0),
-            tangent,
-          );
+          dummy.position.copy(point).add(tempRadialOffset);
+          dummy.quaternion.setFromUnitVectors(tempUp, tangent);
           dummy.scale.set(0.1, 1 + data.speed * 0.1, 0.1);
           dummy.updateMatrix();
           packetsRef.current!.setMatrixAt(i, dummy.matrix);
@@ -232,6 +228,8 @@ const TransformationPhase = () => {
   const coreRef = useRef<THREE.Mesh>(null);
   const coreGlowRef = useRef<THREE.Mesh>(null);
 
+  const coreColor = useMemo(() => new THREE.Color("#ffffff"), []);
+
   useFrame((_, delta) => {
     const offset = scroll.offset;
     const isActive = offset >= 0.8;
@@ -258,11 +256,11 @@ const TransformationPhase = () => {
         8,
         delta,
       );
-      material.color = new THREE.Color("#ffffff");
+      material.color = coreColor;
 
       const glowMat = coreGlowRef.current.material as THREE.MeshBasicMaterial;
       glowMat.opacity = 0.15;
-      glowMat.color = new THREE.Color("#ffffff");
+      glowMat.color = coreColor;
     }
   });
 

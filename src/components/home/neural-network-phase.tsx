@@ -104,6 +104,12 @@ export const NeuralNetworkPhase = () => {
     }));
   }, [connections.length]);
 
+  const tempDirection = useMemo(() => new THREE.Vector3(), []);
+  const tempUp = useMemo(() => new THREE.Vector3(0, 1, 0), []);
+  const baseColor = useMemo(() => new THREE.Color("#1e1b4b"), []);
+  const activeColor = useMemo(() => new THREE.Color("#6d28d9"), []);
+  const tempColor = useMemo(() => new THREE.Color(), []);
+
   useFrame((state, delta) => {
     const offset = scroll.offset;
     const isActive = offset >= 0.45 && offset < 0.7;
@@ -193,13 +199,8 @@ export const NeuralNetworkPhase = () => {
           const easeProgress = (1 - Math.cos(data.progress * Math.PI)) / 2;
           dummy.position.lerpVectors(conn.startVec, conn.endVec, easeProgress);
 
-          const direction = new THREE.Vector3()
-            .subVectors(conn.endVec, conn.startVec)
-            .normalize();
-          dummy.quaternion.setFromUnitVectors(
-            new THREE.Vector3(0, 1, 0),
-            direction,
-          );
+          tempDirection.subVectors(conn.endVec, conn.startVec).normalize();
+          dummy.quaternion.setFromUnitVectors(tempUp, tempDirection);
           dummy.scale.setScalar(0.8); 
 
           dummy.updateMatrix();
@@ -220,12 +221,8 @@ export const NeuralNetworkPhase = () => {
         const colorAttr = linesRef.current.geometry.attributes
           .color as THREE.BufferAttribute;
         if (colorAttr) {
-          const base = new THREE.Color("#1e1b4b");
-          const active = new THREE.Color("#6d28d9");
-          const tempColor = new THREE.Color();
-
           for (let i = 0; i < connections.length; i++) {
-            tempColor.copy(base).lerp(active, connectionEnergy[i] * 0.6); 
+            tempColor.copy(baseColor).lerp(activeColor, connectionEnergy[i] * 0.6); 
 
             colorAttr.array[i * 6] = tempColor.r;
             colorAttr.array[i * 6 + 1] = tempColor.g;
