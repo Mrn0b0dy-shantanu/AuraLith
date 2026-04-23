@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { PageTransition } from "../components/layout/PageTransition";
-import { SpotlightCard } from "../components/ui/SpotlightCard";
-import { SystemContainer } from "../components/ui/SystemContainer";
+import { PageTransition } from "../ui/page-transition";
+import { SpotlightCard } from "../ui/card";
+import { SystemContainer } from "../ui/container";
 
 export default function About() {
   return (
@@ -16,12 +16,10 @@ export default function About() {
                 transition={{ duration: 0.8, ease: "linear" }}
                 className="text-5xl md:text-8xl font-sans font-medium tracking-tighter leading-[0.85] mb-12 uppercase"
               >
-                We build <br />
-                <span className="text-transparent text-stroke-white text-stroke-1 opacity-50">
-                  engines
-                </span>
+                Execution. <br />
+                <span className="text-white/40">Not</span>
                 <br />
-                Not toys.
+                Illusion.
               </motion.h1>
 
               <motion.div
@@ -31,14 +29,13 @@ export default function About() {
                 className="space-y-8 text-lg md:text-xl text-white/60 font-mono leading-relaxed max-w-3xl"
               >
                 <p>
-                  [ AuraLith was founded on a singular premise: the AI industry
-                  has become obsessed with party tricks and consumer chatbots,
-                  while enterprise infrastructure starves for reliability. ]
+                  [ The industry is distracted by conversational illusions. We
+                  engineer the foundational logic for systems that cannot fail.
+                  ]
                 </p>
                 <p>
-                  [ We don't care about writing poems or generating images of
-                  astronauts. We care about deterministic outputs,
-                  sub-millisecond latency, and absolute fault tolerance. ]
+                  [ No poems. No parlor tricks. Just deterministic execution,
+                  sub-millisecond latency, and unbreakable fault tolerance. ]
                 </p>
               </motion.div>
             </div>
@@ -51,7 +48,7 @@ export default function About() {
                 <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#22c55e]" />
 
                 <div className="w-full h-full relative border border-white/5">
-                  <div className="absolute inset-0 bg-[url('https://www.cnet.com/a/img/resize/94d603762d21e9a002300bdea0d93a5e133a7e16/hub/2009/10/07/10556205-f0fe-11e2-8c7c-d4ae52e62bcc/CH1245.jpg?auto=webp&width=1200')] bg-cover bg-center opacity-40 mix-blend-luminosity grayscale" />
+                  <div className="absolute inset-0 bg-[url('https://www.cnet.com/a/img/resize/94d603762d21e9a002300bdea0d93a5e133a7e16/hub/2009/10/07/10556205-f0fe-11e2-8c7c-d4ae52e62bcc/CH1245.jpg?auto=webp&width=1200')] bg-cover bg-center opacity-30 mix-blend-luminosity" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="text-[#22c55e] font-mono text-xs uppercase tracking-widest mb-2 border-b border-white/10 pb-2">
@@ -92,18 +89,18 @@ export default function About() {
               {[
                 {
                   number: "01",
-                  title: "Performance First",
-                  desc: "Every line of code, every hardware choice is optimized for speed. We measure latency in microseconds.",
+                  title: "Performance. Absolute.",
+                  desc: "Every line of code, every hardware choice is optimized for speed. Latency measured in microseconds.",
                 },
                 {
                   number: "02",
-                  title: "No Magic",
-                  desc: "We reject the black box. Our models are deterministic, verifiable, and strictly bounded.",
+                  title: "Zero Magic",
+                  desc: "We reject the black box. Deterministic, verifiable, strictly bounded execution.",
                 },
                 {
                   number: "03",
-                  title: "Absolute Uptime",
-                  desc: "Systems designed to survive catastrophic failures. Active-active replication across isolated regions.",
+                  title: "Zero Downtime",
+                  desc: "Systems designed to survive catastrophic failure. Active-active replication. Unbreakable.",
                 },
               ].map((principle, i) => (
                 <SpotlightCard
@@ -113,7 +110,7 @@ export default function About() {
                 >
                   <div className="text-[#22c55e] font-mono text-xs mb-6 pb-4 border-b border-white/10 flex justify-between">
                     <span>PRINCIPLE_{principle.number}</span>
-                    <span>//</span>
+                    <span>[ VERIFIED ]</span>
                   </div>
                   <h3 className="text-2xl font-sans font-medium mb-4 tracking-tight uppercase">
                     {principle.title}

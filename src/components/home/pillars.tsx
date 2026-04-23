@@ -36,7 +36,7 @@ export default function Pillars() {
     <section ref={containerRef} className="relative w-full h-[300vh] bg-[#050505]">
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         
-        {/* Background elements that react to scroll */}
+        {}
         <motion.div 
           className="absolute inset-0 z-0 opacity-10"
           style={{
@@ -49,13 +49,13 @@ export default function Pillars() {
         <div className="container mx-auto px-4 md:px-12 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            {/* Left side: Dynamic content */}
+            {}
             <div className="relative h-[400px] flex flex-col justify-center">
               {pillars.map((pillar, index) => {
                 const start = index / pillars.length;
                 const end = (index + 1) / pillars.length;
                 
-                // Active state for this specific pillar
+                
                 const opacity = useTransform(
                   scrollYProgress,
                   [Math.max(0, start - 0.1), start, end - 0.1, Math.min(1, end + 0.1)],
@@ -86,7 +86,7 @@ export default function Pillars() {
               })}
             </div>
 
-            {/* Right side: Dynamic metrics/visuals */}
+            {}
             <div className="relative h-[400px] flex items-center justify-center lg:justify-end border-l border-neutral-800 pl-12">
               {pillars.map((pillar, index) => {
                 const start = index / pillars.length;

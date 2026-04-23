@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { useLocation } from 'react-router-dom';
-import './PixelTransition.css';
+import './pixel-transition.css';
 
 interface PixelTransitionProps {
   children: React.ReactElement;
@@ -35,7 +35,7 @@ export default function PixelTransition({
         pixel.style.backgroundColor = pixelColor;
 
         const size = 100 / gridSize;
-        pixel.style.width = `${size + 0.5}%`; // Slight overlap to prevent gaps
+        pixel.style.width = `${size + 0.5}%`; 
         pixel.style.height = `${size + 0.5}%`;
         pixel.style.left = `${col * size}%`;
         pixel.style.top = `${row * size}%`;
@@ -68,7 +68,7 @@ export default function PixelTransition({
       const totalPixels = pixels.length;
       const staggerDuration = animationStepDuration / totalPixels;
 
-      // 1. Cover the screen
+      
       gsap.to(pixels, {
         display: 'block',
         duration: 0,
@@ -78,13 +78,13 @@ export default function PixelTransition({
         }
       });
 
-      // 2. Swap content when screen is covered
+      
       delayedCallRef.current = gsap.delayedCall(animationStepDuration, () => {
         setDisplayLocation(location);
         window.scrollTo(0, 0);
       });
 
-      // 3. Uncover the screen
+      
       gsap.to(pixels, {
         display: 'none',
         duration: 0,

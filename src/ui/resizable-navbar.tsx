@@ -1,11 +1,11 @@
-import { cn } from "../../lib/utils";
+import { cn } from "../lib/utils";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
   motion,
   AnimatePresence,
 } from "framer-motion";
 import { Link } from "react-router-dom";
-import Magnetic from "./Magnetic";
+import Magnetic from "./magnetic";
 
 import React, { useRef, useState, useEffect } from "react";
 
@@ -69,7 +69,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       }
     };
 
-    // Use capture phase to intercept scroll events from the R3F ScrollControls container
+    
     window.addEventListener("scroll", handleScroll, true);
     return () => window.removeEventListener("scroll", handleScroll, true);
   }, []);
@@ -77,7 +77,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
-      // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
+      
       className={cn("sticky inset-x-0 top-5 z-40 w-full", className)}
     >
       {React.Children.map(children, (child) =>

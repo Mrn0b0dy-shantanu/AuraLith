@@ -24,14 +24,14 @@ export default function ComparativeAnalysis() {
         className="max-w-7xl w-full px-4 flex flex-col items-center"
       >
         <h2 className="text-xs tracking-[0.4em] text-[#8b5cf6] uppercase mb-6 font-mono font-medium border-b border-white/10 pb-2 inline-block">
-          Paradigm Shift
+          Architecture
         </h2>
         <h3 className="text-4xl md:text-6xl font-medium text-white mb-20 tracking-tighter text-center">
-          Why Auralith IS Different
+          Why Auralith Wins
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-          {/* Standard Payload */}
+          {}
           <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 opacity-50 filter grayscale transition-all duration-500 hover:opacity-70">
             <h4 className="font-mono text-sm tracking-wider text-white/50 mb-8 border-b border-white/5 pb-4">
               STANDARD_API
@@ -54,7 +54,7 @@ export default function ComparativeAnalysis() {
               <div className="h-full bg-white/20 w-1/3" />
             </div>
           </div>
-          {/* Auralith Payload */}
+          {}
           <div className="bg-[#0a0a0a]/60 backdrop-blur-md border border-[#8b5cf6]/30 shadow-[0_0_30px_rgba(139,92,246,0.1)] rounded-3xl p-8 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-[#8b5cf6]/5 to-transparent pointer-events-none" />
             <h4 className="font-mono text-sm tracking-wider text-[#8b5cf6] mb-8 border-b border-[#8b5cf6]/20 pb-4 flex justify-between">

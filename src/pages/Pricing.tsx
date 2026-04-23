@@ -1,12 +1,12 @@
-import { PageTransition } from '../components/layout/PageTransition';
+import { PageTransition } from '../ui/page-transition';
 import { useState } from 'react';
-import { SpotlightCard } from '../components/ui/SpotlightCard';
-import { SystemContainer } from '../components/ui/SystemContainer';
+import { SpotlightCard } from '../ui/card';
+import { SystemContainer } from '../ui/container';
 
 const plans = [
   {
     name: 'Compute',
-    description: 'For lean teams building specialized applications.',
+    description: 'Lean teams. Specialized applications.',
     price: { monthly: 499, annual: 399 },
     features: [
       '10M Tokens / month',
@@ -20,7 +20,7 @@ const plans = [
   },
   {
     name: 'Infrastructure',
-    description: 'For production systems requiring guaranteed performance.',
+    description: 'Production systems. Guaranteed execution.',
     price: { monthly: 1499, annual: 1199 },
     features: [
       '100M Tokens / month',
@@ -36,7 +36,7 @@ const plans = [
   },
   {
     name: 'Enterprise',
-    description: 'For organizations deploying at planetary scale.',
+    description: 'Organizations deploying at planetary scale.',
     price: { monthly: 'Custom', annual: 'Custom' },
     features: [
       'Unlimited Tokens',
@@ -59,11 +59,11 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto pt-32 pb-40 relative px-4 md:px-8">
         <SystemContainer label="SYS.PRICING.01">
           <h1 className="text-5xl md:text-8xl font-sans font-medium tracking-tighter leading-[0.85] mb-8 uppercase text-center">
-            Priced for<br />
-            <span className="text-transparent text-stroke-white text-stroke-1 opacity-50">scale</span>
+            Scale.<br />
+            <span className="text-transparent text-stroke-white text-stroke-1 opacity-50">Unlocked.</span>
           </h1>
           <p className="text-lg md:text-xl text-white/60 max-w-3xl font-mono leading-relaxed mx-auto text-center mb-12">
-            [ Predictable pricing. No hidden egress fees. No artificial rate limits. Pay for the compute you use. ]
+            [ Predictable compute. No hidden egress. No rate limits. You only pay for execution. ]
           </p>
 
           <div className="flex justify-center">

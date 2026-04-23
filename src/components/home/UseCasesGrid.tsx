@@ -6,7 +6,7 @@ const cases = [
     id: "01",
     title: "High-Frequency Oracles",
     subtitle: "Sub-1ms decision engines",
-    desc: "Deploy deterministic agent workflows that execute alongside latency-critical market data.",
+    desc: "Deploy deterministic agent workflows that execute alongside latency-critical data.",
     color: "#22c55e",
     icon: (
       <svg viewBox="0 0 100 40" className="w-full h-20 opacity-50 overflow-visible">
@@ -33,7 +33,7 @@ const cases = [
     id: "02",
     title: "Agent Orchestration",
     subtitle: "Multi-path parallel execution",
-    desc: "Route complex inference tasks through distributed clusters without managing context states.",
+    desc: "Route complex inference tasks through distributed clusters with zero context loss.",
     color: "#8b5cf6",
     icon: (
       <svg viewBox="0 0 100 40" className="w-full h-20 opacity-50">
@@ -52,7 +52,7 @@ const cases = [
     id: "03",
     title: "Real-time Generative UI",
     subtitle: "Zero-flicker client deployments",
-    desc: "Stream executable frontend components directly from our edge network to the user's DOM.",
+    desc: "Stream executable components from edge to DOM instantly. Zero flicker. Zero latency.",
     color: "#f59e0b",
     icon: (
       <svg viewBox="0 0 100 40" className="w-full h-20 opacity-50">
@@ -73,11 +73,11 @@ export default function UseCasesGrid() {
     >
       <div className="max-w-7xl w-full px-4">
         <h2 className="text-xs tracking-[0.4em] text-white/50 uppercase mb-6 font-mono font-medium border-b border-white/10 pb-2 inline-block">
-          Applications
+          Deployments
         </h2>
         <h3 className="text-4xl md:text-6xl font-medium text-white mb-20 tracking-tighter">
-          Real Scenarios <br />
-          <span className="text-white/30">for Real Scale.</span>
+          Built for the <br />
+          <span className="text-white/30">absolute extreme.</span>
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

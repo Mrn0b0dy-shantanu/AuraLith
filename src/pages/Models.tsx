@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { PageTransition } from '../components/layout/PageTransition';
-import { SystemContainer } from '../components/ui/SystemContainer';
-import { CornerBorders } from '../components/ui/CornerBorders';
+import { PageTransition } from '../ui/page-transition';
+import { SystemContainer } from '../ui/container';
+import { CornerBorders } from '../ui/corner-borders';
 
 const ModelCTA = ({ color }: { color: string }) => (
   <Link to="/pricing" className="inline-block relative group mt-12">
@@ -45,18 +45,18 @@ function CodeModel() {
           <SystemContainer>
             <div className="font-mono text-[#22c55e] text-sm tracking-widest mb-4 flex items-center gap-2">
               <span className="w-2 h-2 bg-[#22c55e] rounded-full animate-pulse" />
-              01 // SYS.CODE_GEN
+              01 
             </div>
             <h2 className="text-5xl md:text-7xl font-sans font-medium mb-6 tracking-tight">Syntax.<br/><span className="text-white/40">Perfected.</span></h2>
             <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed mb-6">
-              Engineered for complex logic and architecture. Lines of thought translate instantly to executable infrastructure. Built to construct, refactor, and scale environments dynamically.
+              Code generation that doesn't guess. Deterministic output for complex architecture. Built to construct, refactor, and scale environments dynamically.
             </p>
             <ModelCTA color="#22c55e" />
           </SystemContainer>
         </motion.div>
         
         <div className="relative h-[60vh] lg:h-[80vh] border border-white/10 bg-[#050505] rounded-xl overflow-hidden flex flex-col shadow-[0_0_50px_rgba(34,197,94,0.03)]">
-          {/* Terminal Header */}
+          {}
           <div className="h-12 border-b border-white/10 flex items-center px-4 justify-between bg-[#0a0a0a]">
             <div className="flex gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500/80" />
@@ -67,7 +67,7 @@ function CodeModel() {
             <div className="w-12" />
           </div>
           
-          {/* Terminal Body */}
+          {}
           <motion.div 
             variants={terminalContainer}
             initial="hidden"
@@ -80,14 +80,14 @@ function CodeModel() {
             <motion.div variants={lineAnim} className="mb-2">
               <span className="text-[#22c55e]">root@auralith</span><span className="text-white">:</span><span className="text-blue-400">~</span><span className="text-white">$</span> ./init_model.sh --target SYS.CODE_GEN
             </motion.div>
-            <motion.div variants={lineAnim} className="text-white/60 mb-1">[INFO] Bootstrapping quantum kernel...</motion.div>
-            <motion.div variants={lineAnim} className="text-white/60 mb-1">[INFO] Memory safe allocation completed at 0x9F3EA.</motion.div>
-            <motion.div variants={lineAnim} className="text-[#22c55e] mb-4">[OK] Model SYS.CODE_GEN loaded.</motion.div>
+            <motion.div variants={lineAnim} className="text-white/60 mb-1">[INFO] Bootstrapping core logic...</motion.div>
+            <motion.div variants={lineAnim} className="text-white/60 mb-1">[INFO] Allocating secure memory...</motion.div>
+            <motion.div variants={lineAnim} className="text-[#22c55e] mb-4">[OK] Model loaded and active.</motion.div>
             
             <motion.div variants={lineAnim} className="mb-2">
               <span className="text-[#22c55e]">root@auralith</span><span className="text-white">:</span><span className="text-blue-400">~</span><span className="text-white">$</span> compile_logic --scale max
             </motion.div>
-            <motion.div variants={lineAnim} className="text-white/60 mb-2">Building infrastructure dynamically...</motion.div>
+            <motion.div variants={lineAnim} className="text-white/60 mb-2">Deploying infrastructure...</motion.div>
             
             <motion.div variants={lineAnim} className="mb-4 flex items-center gap-2">
                <span className="text-white/40">[</span>
@@ -146,7 +146,7 @@ function SynthesisModel() {
                   className="font-mono text-[#3b82f6] text-sm tracking-widest mb-4 flex items-center gap-2"
                 >
                   <motion.span animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: 'linear' }} className="block w-3 h-3 border border-[#3b82f6] rounded-sm" />
-                  02 // SYS.SYNTHESIS
+                  02 
                 </motion.div>
               
               <h2 className="text-5xl md:text-7xl font-sans font-medium mb-6 tracking-tight flex flex-col gap-1">
@@ -176,7 +176,7 @@ function SynthesisModel() {
                 viewport={{ once: true }}
                 className="text-white/60 text-lg md:text-xl font-light leading-relaxed mb-10"
               >
-                Extracts signal from the noise. We process petabytes of unstructured text to form cohesive, factual landscapes. A horizontally scaled research engine that synthesizes reality.
+                Signal from noise. We process petabytes of unstructured text into factual landscapes. A horizontally scaled engine that synthesizes reality.
               </motion.p>
               
               <motion.div 
@@ -225,7 +225,7 @@ function SynthesisModel() {
           <div className="w-[80vw] lg:w-[50vw] h-[50vh] lg:h-[60vh] shrink-0 relative flex items-center justify-center">
             
             <div className="relative w-64 h-64 lg:w-[30rem] lg:h-[30rem] flex items-center justify-center">
-              {/* Blur Layer */}
+              {}
               <div className="absolute inset-0 filter blur-3xl opacity-60">
                 <motion.div 
                   style={{ x: blob1X, scale }}
@@ -237,7 +237,7 @@ function SynthesisModel() {
                 />
               </div>
 
-              {/* Sharp geometric elements reacting on hover */}
+              {}
               <motion.div 
                 whileHover={{ scale: 1.1, rotate: 15 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -251,14 +251,14 @@ function SynthesisModel() {
                   className="absolute w-[130%] h-[130%] border border-dashed border-[#3b82f6]/30 rounded-full"
                 />
                 
-                {/* Center Core */}
+                {}
                 <motion.div 
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   className="w-16 h-16 bg-gradient-to-tr from-[#3b82f6] to-[#a855f7] rounded-full shadow-[0_0_40px_rgba(59,130,246,0.6)]"
                 />
                 
-                {/* Floating Orbitals */}
+                {}
                 <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="absolute top-0 w-3 h-3 bg-[#a855f7] rounded-full shadow-[0_0_10px_#a855f7]" />
                   <div className="absolute bottom-0 w-2 h-2 bg-[#3b82f6] rounded-full shadow-[0_0_10px_#3b82f6]" />
@@ -286,9 +286,9 @@ function VisionModel() {
         <SystemContainer className="mb-16 w-full max-w-4xl mx-auto">
           <div className="relative z-10 flex flex-col items-center">
             <div className="font-mono text-[#f59e0b] text-sm tracking-widest mb-4">03 // SYS.VISION</div>
-            <h2 className="text-5xl md:text-7xl font-sans font-medium mb-6 tracking-tight">Pixel<br/><span className="text-white/40">Omniscience.</span></h2>
+            <h2 className="text-5xl md:text-7xl font-sans font-medium mb-6 tracking-tight">Vision.<br/><span className="text-white/40">Absolute.</span></h2>
             <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-              Near-perfect recognition. Mapping spatial environments and extracting semantic meaning from every frame. It doesn't just see; it understands context and depth.
+              Near-perfect recognition. Mapping spatial environments and extracting semantic meaning instantly. It doesn't just see; it understands context and depth.
             </p>
           </div>
         </SystemContainer>
@@ -332,7 +332,7 @@ function AudioModel() {
 
   return (
     <div ref={ref} className="min-h-screen relative flex items-center justify-center overflow-hidden border-t border-white/5">
-      {/* Abstract Soundwaves */}
+      {}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.15]">
         {Array.from({length: 6}).map((_, i) => (
           <motion.div 
@@ -348,7 +348,7 @@ function AudioModel() {
       <motion.div style={{ y }} className="max-w-4xl mx-auto px-6 text-center z-10 relative">
         <SystemContainer className="bg-[#0a0a0a]/80 p-12 lg:p-20 shadow-2xl">
           <div className="font-mono text-[#ec4899] text-sm tracking-widest mb-4 relative z-10">04 // SYS.AUDIO</div>
-          <h2 className="text-5xl md:text-7xl font-sans font-medium mb-6 tracking-tight relative z-10">Acoustic<br/><span className="text-white/40">Clarity.</span></h2>
+          <h2 className="text-5xl md:text-7xl font-sans font-medium mb-6 tracking-tight relative z-10">Acoustic.<br/><span className="text-white/40">Clarity.</span></h2>
           <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed mb-12 relative z-10">
             Real-time speech synthesis and acoustic processing. Translates emotion, tone, and intent with absolute fidelity. The true voice of our architecture.
           </p>
@@ -383,9 +383,9 @@ function ReasoningModel() {
         <div className="lg:sticky top-[30vh] self-start relative">
           <SystemContainer>
             <div className="font-mono text-[#06b6d4] text-sm tracking-widest mb-4">05 // SYS.REASONING</div>
-            <h2 className="text-5xl md:text-7xl font-sans font-medium mb-6 tracking-tight">Autonomous<br/><span className="text-white/40">Logic.</span></h2>
+            <h2 className="text-5xl md:text-7xl font-sans font-medium mb-6 tracking-tight">Autonomous.<br/><span className="text-white/40">Logic.</span></h2>
             <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed mb-6">
-              Multi-step deduction infrastructure. It does not just predict the next token; it plans, evaluates, and course-corrects dynamically. The secure core of autonomous agent behavior.
+              Multi-step deduction infrastructure. It doesn't just predict the next token; it plans, evaluates, and course-corrects dynamically. The secure core of autonomous agent behavior.
             </p>
             <ModelCTA color="#06b6d4" />
           </SystemContainer>
@@ -435,16 +435,16 @@ export default function Models() {
                  <span className="text-xs font-mono tracking-widest text-white/70 uppercase">Intelligence Matrix</span>
                </div>
                <h1 className="text-6xl md:text-8xl font-sans font-medium tracking-tight mb-8">
-                Intelligence<br/><span className="text-white/30">Redefined.</span>
+                Intelligence.<br/><span className="text-white/30">Deployed.</span>
                </h1>
                <p className="text-xl md:text-2xl text-white/50 font-light max-w-2xl mx-auto leading-relaxed">
-                 Discover our suite of specialized neural models. Each crafted for specific operational domains to deliver infrastructure-grade performance.
+                 Our suite of specialized neural models. Engineered for specific operational domains. Infrastructure-grade performance, deployed.
                </p>
             </SystemContainer>
           </motion.div>
         </div>
 
-        {/* The Journey */}
+        {}
         <CodeModel />
         <SynthesisModel />
         <VisionModel />

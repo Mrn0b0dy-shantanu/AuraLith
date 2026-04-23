@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Magnetic from "../ui/Magnetic";
+import Magnetic from "../../ui/magnetic";
 
 export default function FinalCallToAction() {
   const containerRef = useRef<HTMLElement>(null);
@@ -17,7 +17,7 @@ export default function FinalCallToAction() {
       ref={containerRef}
       className="w-full min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden"
     >
-      {/* Background sweep */}
+      {}
       <motion.div 
         className="absolute inset-0 z-0"
         style={{

@@ -4,7 +4,7 @@ import { Experience } from '../components/home/Experience';
 import { Overlay } from '../components/home/Overlay';
 import { Suspense } from 'react';
 
-// Extended Home Sections
+
 import ComparativeAnalysis from '../components/home/ComparativeAnalysis';
 import UseCasesGrid from '../components/home/UseCasesGrid';
 import TelemetryDashboard from '../components/home/TelemetryDashboard';
@@ -12,7 +12,7 @@ import TelemetryDashboard from '../components/home/TelemetryDashboard';
 export default function Home() {
   return (
     <div className="w-full text-white font-sans selection:bg-[#22c55e]/30 relative flex flex-col">
-      {/* Scroll-trapping immersive 3D sequence container */}
+      {}
       <div className="w-full h-screen sticky top-0 z-10 shrink-0">
         <Canvas
           camera={{ position: [0, 0, 12], fov: 45 }}
@@ -31,7 +31,7 @@ export default function Home() {
         </Canvas>
       </div>
 
-      {/* Main page static content flows naturally after user reaches bottom of 3D scroll */}
+      {}
       <div 
         className="relative z-20 w-full flex flex-col items-center bg-[#0a0a0a]"
         style={{
@@ -39,7 +39,7 @@ export default function Home() {
           WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 300px)'
         }}
       >
-        {/* Isolate the grid and its mask to an absolute layer so it doesn't mask the solid background out */}
+        {}
         <div className="absolute inset-0 z-0 bg-grid pointer-events-none" />
         
         <div className="relative z-10 w-full flex flex-col items-center">

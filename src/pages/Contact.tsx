@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { PageTransition } from "../components/layout/PageTransition";
+import { PageTransition } from "../ui/page-transition";
 import { ArrowRight, Mail, MapPin, Terminal } from "lucide-react";
-import { SpotlightCard } from "../components/ui/SpotlightCard";
-import { SystemContainer } from "../components/ui/SystemContainer";
+import { SpotlightCard } from "../ui/card";
+import { SystemContainer } from "../ui/container";
 
 export default function Contact() {
   return (
@@ -10,14 +10,14 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto pt-32 pb-40 relative px-4 md:px-8">
         <SystemContainer label="SYS.CONTACT.01">
           <h1 className="text-5xl md:text-8xl font-sans font-medium tracking-tighter leading-[0.85] mb-8 uppercase text-center">
-            Initiate <br />
+            Establish <br />
             <span className="text-transparent text-stroke-white text-stroke-1 opacity-50">
-              Contact
+              Connection
             </span>
           </h1>
           <p className="text-lg md:text-xl text-white/60 max-w-3xl font-mono leading-relaxed mx-auto text-center">
-            [ Whether you need custom bare-metal deployment or have questions
-            about our latency SLAs, our engineering team is ready. ]
+            [ Bare-metal deployments. Latency SLAs. Enterprise infrastructure.
+            Our engineering team is ready. ]
           </p>
         </SystemContainer>
 
@@ -32,7 +32,7 @@ export default function Contact() {
               transition={{ duration: 0.8, ease: "linear" }}
             >
               <div className="absolute top-4 right-4 text-white/20 font-mono text-xs">
-                // CHANNELS
+                
               </div>
 
               <div className="space-y-12 mt-8">
@@ -42,7 +42,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-xs font-mono uppercase tracking-widest text-white/40 mb-2">
-                      Direct Line
+                      Comm Link
                     </h3>
                     <p className="text-lg font-mono text-white/80">
                       engineering@auralith.ai
@@ -56,7 +56,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-xs font-mono uppercase tracking-widest text-white/40 mb-2">
-                      Headquarters
+                      Physical Node
                     </h3>
                     <p className="text-lg font-mono text-white/80">
                       Uttara, Dhaka
@@ -72,7 +72,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-xs font-mono uppercase tracking-widest text-white/40 mb-2">
-                      System Status
+                      Infrastructure Status
                     </h3>
                     <p className="text-lg font-mono text-[#22c55e] flex items-center gap-2">
                       <span className="w-2 h-2 bg-[#22c55e] animate-pulse" />
@@ -94,7 +94,7 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.2, ease: "linear" }}
             >
               <div className="absolute top-4 right-4 text-white/20 font-mono text-xs">
-                // TRANSMIT
+                
               </div>
 
               <form className="mt-8" onSubmit={(e) => e.preventDefault()}>

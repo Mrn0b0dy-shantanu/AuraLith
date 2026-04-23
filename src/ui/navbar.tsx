@@ -11,7 +11,7 @@ import {
   MobileNavHeader,
   MobileNavMenu,
   MobileNavToggle,
-} from "../ui/resizable-navbar";
+} from "./resizable-navbar";
 
 export default function AppNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,10 +27,10 @@ export default function AppNavbar() {
     <>
       <div style={{ position: "fixed", top: 0, width: "100%", zIndex: 100 }}>
         <div style={{ width: "100vw", height: "100px", position: "relative" }}>
-          {/* Navbar */}
+          {}
 
           <Navbar className=" ">
-            {/* Desktop Nav */}
+            {}
             <NavBody className="backdrop-blur-lg border border-white/5 dark:border-white/5 shadow-lg">
               <NavbarLogo />
 
@@ -44,7 +44,7 @@ export default function AppNavbar() {
               </NavbarButton>
             </NavBody>
 
-            {/* Mobile Nav */}
+            {}
             <MobileNav className="">
               <MobileNavHeader className="">
                 <NavbarLogo />
@@ -54,10 +54,7 @@ export default function AppNavbar() {
                 />
               </MobileNavHeader>
 
-              <MobileNavMenu
-                isOpen={isMenuOpen}
-                className=""
-              >
+              <MobileNavMenu isOpen={isMenuOpen} className="">
                 {navLinks.map((item) => (
                   <Link
                     key={item.name}

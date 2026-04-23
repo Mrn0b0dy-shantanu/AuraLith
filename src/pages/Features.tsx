@@ -1,9 +1,9 @@
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
-import { PageTransition } from '../components/layout/PageTransition';
+import { PageTransition } from '../ui/page-transition';
 import { Zap, Shield, Cpu, Activity } from 'lucide-react';
 import { useRef, useEffect } from 'react';
-import { SpotlightCard } from '../components/ui/SpotlightCard';
-import { SystemContainer } from '../components/ui/SystemContainer';
+import { SpotlightCard } from '../ui/card';
+import { SystemContainer } from '../ui/container';
 
 function AnimatedCounter({ value, suffix = '', duration = 2 }: { value: number, suffix?: string, duration?: number }) {
   const ref = useRef(null);
@@ -28,7 +28,7 @@ function AnimatedCounter({ value, suffix = '', duration = 2 }: { value: number, 
 const features = [
   {
     title: 'Sub-millisecond Latency',
-    description: 'Engineered for high-frequency trading and real-time robotics. Our inference engine bypasses traditional overhead, delivering responses faster than human perception.',
+    description: 'Engineered for high-frequency logic. Bypassing traditional overhead to deliver execution faster than human perception.',
     statValue: 0.8,
     statSuffix: 'ms',
     label: 'P99 Latency',
@@ -38,8 +38,8 @@ const features = [
     border: 'border-[#22c55e]/50'
   },
   {
-    title: 'Deterministic Accuracy',
-    description: 'No hallucinations. No probabilistic guessing. We enforce strict semantic boundaries and verifiable logic gates for mission-critical deployments.',
+    title: 'Deterministic Execution',
+    description: 'No probabilistic guessing. Strict semantic boundaries and verifiable logic gates. Built for mission-critical deployments.',
     statValue: 99.9,
     statSuffix: '%',
     label: 'Factual Adherence',
@@ -50,7 +50,7 @@ const features = [
   },
   {
     title: 'Bare-Metal Efficiency',
-    description: 'Optimized at the silicon level. We squeeze maximum FLOPs out of every GPU cycle, reducing your compute costs by an order of magnitude.',
+    description: 'Optimized at the silicon level. Maximizing compute out of every cycle. Reducing costs by an order of magnitude.',
     statValue: 10,
     statSuffix: 'x',
     label: 'Throughput Increase',
@@ -61,7 +61,7 @@ const features = [
   },
   {
     title: 'Fault-Tolerant Architecture',
-    description: 'Distributed by default. Multi-region active-active replication ensures your AI infrastructure never goes down, even during catastrophic zone failures.',
+    description: 'Distributed by default. Multi-region active-active replication ensures your infrastructure never halts. Zero downtime.',
     statValue: 100,
     statSuffix: '%',
     label: 'Uptime SLA',
@@ -80,11 +80,11 @@ export default function Features() {
       <div className="max-w-7xl mx-auto relative pt-32 pb-40 px-4 md:px-8" ref={containerRef}>
         <SystemContainer label="SYS.PERFORMANCE.01">
           <h1 className="text-4xl md:text-8xl font-sans font-medium tracking-tighter leading-[0.85] mb-8 uppercase text-center">
-            Performance<br />
-            <span className="text-transparent text-stroke-white text-stroke-1 opacity-50">Without compromise</span>
+            Performance.<br />
+            <span className="text-transparent text-stroke-white text-stroke-1 opacity-50">Absolute.</span>
           </h1>
           <p className="text-lg md:text-xl text-white/60 max-w-3xl font-mono leading-relaxed mx-auto text-center">
-            [ We don't build toys. We build infrastructure-grade intelligence designed for systems that cannot afford to fail. ]
+            [ We build infrastructure-grade intelligence. Designed for systems that cannot fail. ]
           </p>
         </SystemContainer>
 
@@ -92,7 +92,7 @@ export default function Features() {
           {features.map((feature, index) => (
             <SpotlightCard key={index} spotlightColor="rgba(139, 92, 246, 0.15)" className="p-10 relative group overflow-hidden hover:bg-[#111]/80 transition-colors duration-300">
               <div className="absolute top-4 right-4 text-white/20 font-mono text-xs">
-                {String(index + 1).padStart(2, '0')} // {feature.label.replace(' ', '_').toUpperCase()}
+                {String(index + 1).padStart(2, '0')} 
               </div>
               
               <div className={`w-12 h-12 border border-white/10 flex items-center justify-center mb-8 ${feature.color}`}>
@@ -129,7 +129,7 @@ export default function Features() {
               <div className="lg:col-span-5">
                 <h2 className="text-4xl md:text-6xl font-sans font-medium mb-6 tracking-tighter uppercase">The Benchmark</h2>
                 <p className="text-white/60 font-mono text-sm leading-relaxed">
-                  Stop paying for bloated models. Our specialized architecture outperforms general-purpose LLMs on specific tasks while using a fraction of the compute.
+                  Stop paying for bloated overhead. Our specialized architecture outperforms general-purpose APIs while using a fraction of the compute.
                 </p>
               </div>
               

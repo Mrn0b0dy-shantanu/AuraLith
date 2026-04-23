@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Magnetic from "./ui/Magnetic";
-import { ScrambleText } from "./ui/ScrambleText";
+import Magnetic from "./magnetic";
+import { ScrambleText } from "./scramble-text";
 
 export default function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);

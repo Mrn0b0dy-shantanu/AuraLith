@@ -28,10 +28,10 @@ export default function EcosystemIntegration() {
         </h3>
 
         <div className="w-full max-w-4xl relative aspect-video border border-white/10 rounded-3xl bg-white/[0.02] backdrop-blur-md overflow-hidden flex items-center justify-center">
-          {/* Node graph UI will go here */}
+          {}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.1)_0%,transparent_70%)]" />
 
-          {/* Central Hub */}
+          {}
           <div className="relative z-10 w-32 h-32 rounded-full border border-[#22c55e]/50 bg-[#22c55e]/10 flex items-center justify-center shadow-[0_0_40px_rgba(34,197,94,0.3)]">
             <span className="font-mono text-sm font-bold tracking-wider">
               AURALITH

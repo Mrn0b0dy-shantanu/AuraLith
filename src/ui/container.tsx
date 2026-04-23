@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { CornerBorders } from './CornerBorders';
-import { SystemHeader } from './SystemHeader';
+import { CornerBorders } from './corner-borders';
+import { SystemHeader } from './system-header';
 
 export interface SystemContainerProps {
   children: ReactNode;

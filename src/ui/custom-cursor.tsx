@@ -7,12 +7,12 @@ export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
-  // Use motion values for raw position (avoids re-renders)
+  
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Smooth springs for physics-based lag effect
-  // Dot follows fast, ring follows with slightly more lag
+  
+  
   const springConfigDot = { damping: 25, stiffness: 450, mass: 0.1 };
   const springConfigRing = { damping: 30, stiffness: 180, mass: 0.4 };
 
@@ -23,7 +23,7 @@ export default function CustomCursor() {
   const ringY = useSpring(mouseY, springConfigRing);
 
   useEffect(() => {
-    // Detect touch/mobile device
+    
     if (window.matchMedia("(pointer: coarse)").matches) {
       setIsTouchDevice(true);
       return;
@@ -48,21 +48,21 @@ export default function CustomCursor() {
       if (!target) return;
 
       const tagName = target.tagName.toLowerCase();
-      // Interactive elements (buttons, links, clickable cards)
+      
       if (
         tagName === 'a' || 
         tagName === 'button' || 
         target.closest('a') || 
         target.closest('button') ||
         (target.hasAttribute('role') && target.getAttribute('role') === 'button') ||
-        target.classList.contains('interactive') || // For specific cards if needed
+        target.classList.contains('interactive') || 
         (target as any).onclick
       ) {
         setCursorVariant('interactive');
         return;
       }
       
-      // Text elements
+      
       if (
         tagName === 'p' || 
         tagName === 'h1' || 
@@ -101,14 +101,14 @@ export default function CustomCursor() {
     };
   }, [isVisible, mouseX, mouseY]);
 
-  // Disable on touch devices
+  
   if (isTouchDevice) return null;
 
   const variantsDot = {
     default: {
       width: 6,
       height: 6,
-      backgroundColor: '#22c55e', // Green
+      backgroundColor: '#22c55e', 
       borderRadius: '50%',
       x: '-50%',
       y: '-50%',
@@ -118,7 +118,7 @@ export default function CustomCursor() {
     interactive: {
       width: 10,
       height: 10,
-      backgroundColor: '#a855f7', // Purple shift
+      backgroundColor: '#a855f7', 
       borderRadius: '50%',
       x: '-50%',
       y: '-50%',
@@ -128,7 +128,7 @@ export default function CustomCursor() {
     text: {
       width: 2,
       height: 20,
-      backgroundColor: '#22c55e', // Green
+      backgroundColor: '#22c55e', 
       borderRadius: '2px',
       x: '-50%',
       y: '-50%',
@@ -141,7 +141,7 @@ export default function CustomCursor() {
     default: {
       width: 28,
       height: 28,
-      border: '1px solid rgba(168, 85, 247, 0.3)', // Subtle purple glow/border
+      border: '1px solid rgba(168, 85, 247, 0.3)', 
       boxShadow: '0 0 10px rgba(168, 85, 247, 0.1)',
       backgroundColor: 'transparent',
       borderRadius: '50%',
@@ -178,7 +178,7 @@ export default function CustomCursor() {
 
   return (
     <div style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.3s ease' }}>
-      {/* Outer Ring */}
+      {}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9998]"
         style={{ left: ringX, top: ringY }}
@@ -186,7 +186,7 @@ export default function CustomCursor() {
         animate={cursorVariant}
         transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
       />
-      {/* Core Dot */}
+      {}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999]"
         style={{ left: dotX, top: dotY }}

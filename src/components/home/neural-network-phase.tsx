@@ -24,7 +24,7 @@ export const NeuralNetworkPhase = () => {
       const x = (layerIdx - (layers.length - 1) / 2) * layerSpacing;
       for (let i = 0; i < count; i++) {
         const y = (i - (count - 1) / 2) * nodeSpacing;
-        const z = (Math.random() - 0.5) * 0.5; // Very subtle depth
+        const z = (Math.random() - 0.5) * 0.5; 
         nodes.push(new THREE.Vector3(x, y, z));
         nodeIndex++;
       }
@@ -44,7 +44,7 @@ export const NeuralNetworkPhase = () => {
 
       for (let i = 0; i < currentLayerCount; i++) {
         for (let j = 0; j < nextLayerCount; j++) {
-          // Connect to nearest nodes in the next layer to create a flowing structure
+          
           const yDist = Math.abs(
             i - (currentLayerCount - 1) / 2 - (j - (nextLayerCount - 1) / 2),
           );
@@ -100,7 +100,7 @@ export const NeuralNetworkPhase = () => {
     return Array.from({ length: signalCount }).map(() => ({
       connectionIndex: Math.floor(Math.random() * connections.length),
       progress: Math.random(),
-      speed: 0.2 + Math.random() * 0.4, // Slower, smoother speed
+      speed: 0.2 + Math.random() * 0.4, 
     }));
   }, [connections.length]);
 
@@ -110,8 +110,8 @@ export const NeuralNetworkPhase = () => {
 
     if (groupRef.current) {
       const targetScale = isActive ? 0.8 : 0.001;
-      const targetZ = isActive ? 0 : 30; // Fly in
-      const targetX = isActive ? 3 : 0; // Shift left
+      const targetZ = isActive ? 0 : 30; 
+      const targetX = isActive ? 3 : 0; 
 
       groupRef.current.scale.setScalar(
         THREE.MathUtils.damp(groupRef.current.scale.x, targetScale, 15, delta),
@@ -136,7 +136,7 @@ export const NeuralNetworkPhase = () => {
 
       let currentOpacity = 0;
 
-      // Decay energy
+      
       for (let i = 0; i < connections.length; i++) {
         connectionEnergy[i] = Math.max(0, connectionEnergy[i] - delta * 1.5);
       }
@@ -150,23 +150,23 @@ export const NeuralNetworkPhase = () => {
           mat.opacity,
           targetOpacity * 0.9,
           0.1,
-        ); // Increased opacity
+        ); 
 
         signalData.forEach((data, i) => {
           data.progress += data.speed * delta;
 
-          // Add energy to the current connection
+          
           connectionEnergy[data.connectionIndex] = Math.min(
             1,
             connectionEnergy[data.connectionIndex] + delta * 3,
-          ); // Less intense energy
+          ); 
 
           if (data.progress >= 1) {
             data.progress = 0;
             const currentConn = connections[data.connectionIndex];
 
-            // Energize the node we just reached
-            nodeEnergy[currentConn.end] = 0.5; // Less energy
+            
+            nodeEnergy[currentConn.end] = 0.5; 
 
             const possibleNextIndices: number[] = [];
             connections.forEach((c, idx) => {
@@ -189,7 +189,7 @@ export const NeuralNetworkPhase = () => {
 
           const conn = connections[data.connectionIndex];
 
-          // Easing for smooth movement (sine in-out)
+          
           const easeProgress = (1 - Math.cos(data.progress * Math.PI)) / 2;
           dummy.position.lerpVectors(conn.startVec, conn.endVec, easeProgress);
 
@@ -200,7 +200,7 @@ export const NeuralNetworkPhase = () => {
             new THREE.Vector3(0, 1, 0),
             direction,
           );
-          dummy.scale.setScalar(0.8); // Slightly smaller
+          dummy.scale.setScalar(0.8); 
 
           dummy.updateMatrix();
           signalsRef.current!.setMatrixAt(i, dummy.matrix);
@@ -214,7 +214,7 @@ export const NeuralNetworkPhase = () => {
           mat.opacity,
           targetOpacity * 0.4,
           0.1,
-        ); // Brighter
+        ); 
         currentOpacity = Math.max(currentOpacity, mat.opacity);
 
         const colorAttr = linesRef.current.geometry.attributes
@@ -225,7 +225,7 @@ export const NeuralNetworkPhase = () => {
           const tempColor = new THREE.Color();
 
           for (let i = 0; i < connections.length; i++) {
-            tempColor.copy(base).lerp(active, connectionEnergy[i] * 0.6); // More intense lerp
+            tempColor.copy(base).lerp(active, connectionEnergy[i] * 0.6); 
 
             colorAttr.array[i * 6] = tempColor.r;
             colorAttr.array[i * 6 + 1] = tempColor.g;
@@ -245,13 +245,13 @@ export const NeuralNetworkPhase = () => {
           mat.opacity,
           targetOpacity * 0.6,
           0.1,
-        ); // Brighter
+        ); 
 
         nodes.forEach((node, i) => {
           dummy.position.copy(node);
           const basePulse =
-            1 + Math.sin(state.clock.elapsedTime * 2 + i) * 0.03; // Less pulse
-          const energyPulse = nodeEnergy[i] * 0.3; // Less energy
+            1 + Math.sin(state.clock.elapsedTime * 2 + i) * 0.03; 
+          const energyPulse = nodeEnergy[i] * 0.3; 
           dummy.scale.setScalar(basePulse + energyPulse);
           dummy.updateMatrix();
           nodesRef.current!.setMatrixAt(i, dummy.matrix);

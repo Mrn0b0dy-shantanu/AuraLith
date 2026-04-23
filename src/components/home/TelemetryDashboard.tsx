@@ -12,7 +12,7 @@ export default function TelemetryDashboard() {
       setLatency((prev) =>
         Math.max(Math.min(prev + (Math.random() * 2 - 1), 18), 8),
       );
-      // Occasionally tick uptime up or down to look live
+      
       if (Math.random() > 0.9) {
         setUptime(99.999);
       }
@@ -29,7 +29,7 @@ export default function TelemetryDashboard() {
         <div className="bg-[#0a0a0a]/60 backdrop-blur-md border border-white/10 rounded-[40px] p-8 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center gap-16">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(139,92,246,0.1)_0%,transparent_50%)]" />
 
-          {/* Text Side */}
+          {}
           <div className="flex-1 relative z-10">
             <h2 className="text-xs tracking-[0.4em] text-[#22c55e] uppercase mb-6 font-mono font-medium inline-block">
               <span className="w-2 h-2 inline-block bg-[#22c55e] rounded-full mr-3 animate-pulse" />
@@ -73,13 +73,13 @@ export default function TelemetryDashboard() {
             </div>
           </div>
 
-          {/* Visual Side */}
+          {}
           <div className="flex-1 h-[400px] relative w-full flex items-center justify-center">
             <svg
               viewBox="0 0 200 200"
               className="w-64 h-64 md:w-80 md:h-80 overflow-visible"
             >
-              {/* Subtle background grids */}
+              {}
               <defs>
                 <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
                   <stop offset="0%" stopColor="#22c55e" stopOpacity="0.3" />
@@ -87,7 +87,7 @@ export default function TelemetryDashboard() {
                 </radialGradient>
               </defs>
 
-              {/* Orbital Rings */}
+              {}
               {[90, 65, 40].map((r, i) => (
                 <circle
                   key={i}
@@ -103,7 +103,7 @@ export default function TelemetryDashboard() {
 
 
 
-              {/* Central Nucleus */}
+              {}
               <motion.circle
                 cx="100"
                 cy="100"
@@ -122,7 +122,7 @@ export default function TelemetryDashboard() {
               />
               <circle cx="100" cy="100" r="6" fill="white" fillOpacity="0.2" />
 
-              {/* Data Nodes */}
+              {}
               {[0, 72, 144, 216, 288].map((angle, i) => {
                 const rad = (angle * Math.PI) / 180;
                 const r = 65;
@@ -130,7 +130,7 @@ export default function TelemetryDashboard() {
                 const y = 100 + Math.sin(rad) * r;
                 return (
                   <g key={i}>
-                    {/* Glow */}
+                    {}
                     <motion.circle
                       cx={x}
                       cy={y}
@@ -146,7 +146,7 @@ export default function TelemetryDashboard() {
                         delay: i * 0.4,
                       }}
                     />
-                    {/* Dot */}
+                    {}
                     <motion.circle
                       cx={x}
                       cy={y}
@@ -159,7 +159,7 @@ export default function TelemetryDashboard() {
                         delay: i * 0.4,
                       }}
                     />
-                    {/* Connection to core */}
+                    {}
                     <motion.line
                       x1="100"
                       y1="100"

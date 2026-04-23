@@ -1,4 +1,4 @@
-import { ScrambleText } from './ScrambleText';
+import { ScrambleText } from './scramble-text';
 
 export interface SystemHeaderProps {
   text: string;

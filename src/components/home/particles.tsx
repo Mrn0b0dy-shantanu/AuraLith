@@ -29,7 +29,7 @@ export default function Particles({
         y: Math.random() * height,
         size: Math.random() * particleBaseSize + 0.5,
         color: particleColors[Math.floor(Math.random() * particleColors.length)],
-        // More directional movement (mostly upwards/diagonal)
+        
         speedX: (Math.random() - 0.5) * speed,
         speedY: (Math.random() * -1 - 0.2) * speed,
       });
@@ -38,7 +38,7 @@ export default function Particles({
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
       
-      // Draw connections
+      
       ctx.lineWidth = 0.5;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
@@ -60,7 +60,7 @@ export default function Particles({
         p.x += p.speedX;
         p.y += p.speedY;
         
-        // Wrap around
+        
         if (p.x < 0) p.x = width;
         if (p.x > width) p.x = 0;
         if (p.y < 0) p.y = height;

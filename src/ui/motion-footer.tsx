@@ -4,16 +4,16 @@ import * as React from "react";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { cn } from "../../lib/utils";
+import { cn } from "../lib/utils";
 
-// Register ScrollTrigger safely for React
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// -------------------------------------------------------------------------
-// 1. THEME-ADAPTIVE INLINE STYLES
-// -------------------------------------------------------------------------
+
+
+
 const STYLES = `
 .cinematic-footer-wrapper {
   -webkit-font-smoothing: antialiased;
@@ -47,7 +47,7 @@ const STYLES = `
   animation: footer-heartbeat 2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
 
-/* Theme-adaptive Grid Background to match global */
+
 .footer-bg-grid {
   background-size: 60px 60px;
   background-image: 
@@ -57,7 +57,7 @@ const STYLES = `
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
 
-/* Theme-adaptive Aurora Glow */
+
 .footer-aurora {
   background: radial-gradient(
     circle at 50% 50%, 
@@ -67,7 +67,7 @@ const STYLES = `
   );
 }
 
-/* Glass Pill Theming */
+
 .footer-glass-pill {
   background: rgba(10, 10, 10, 0.6);
   box-shadow: 
@@ -89,7 +89,7 @@ const STYLES = `
   color: white;
 }
 
-/* Giant Background Text Masking */
+
 .footer-giant-bg-text {
   font-size: clamp(4rem, 21vw, 40rem);
   line-height: 0.75;
@@ -103,7 +103,7 @@ const STYLES = `
   background-clip: text;
 }
 
-/* Metallic Text Glow */
+
 .footer-text-glow {
   background: linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0.4) 100%);
   -webkit-background-clip: text;
@@ -188,9 +188,9 @@ const MagneticButton = React.forwardRef<HTMLElement, MagneticButtonProps>(
 );
 MagneticButton.displayName = "MagneticButton";
 
-// -------------------------------------------------------------------------
-// 3. MAIN COMPONENT
-// -------------------------------------------------------------------------
+
+
+
 
 import { useLocation } from "react-router-dom";
 
@@ -205,9 +205,9 @@ export function CinematicFooter() {
     if (typeof window === "undefined") return;
     if (!wrapperRef.current) return;
 
-    // React strict mode compatible GSAP context cleanup
+    
     const ctx = gsap.context(() => {
-      // Background Parallax
+      
       gsap.fromTo(
         giantTextRef.current,
         { y: "10vh", scale: 0.8, opacity: 0 },
@@ -225,7 +225,7 @@ export function CinematicFooter() {
         },
       );
 
-      // Staggered Content Reveal
+      
       gsap.fromTo(
         [headingRef.current, linksRef.current],
         { y: 50, opacity: 0 },
@@ -248,11 +248,11 @@ export function CinematicFooter() {
   }, []);
 
   useEffect(() => {
-    // Refresh ScrollTrigger when location changes so that the trigger positions
-    // are recalculated based on the new page height.
+    
+    
     const timeout = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 500); // 500ms delay to allow page transition to complete
+    }, 500); 
     return () => clearTimeout(timeout);
   }, [location.pathname]);
 
@@ -264,23 +264,19 @@ export function CinematicFooter() {
     <>
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
 
-      {/* 
-        The "Curtain Reveal" Wrapper:
-        It sits in standard flow. Because it has clip-path, its contents
-        are ONLY visible within its bounding box. 
-      */}
+      {}
       <div
         ref={wrapperRef}
         className="relative h-screen w-full"
         style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
-        {/* The actual footer stays fixed to the viewport underneath everything */}
+        {}
         <footer className="fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden bg-[#0a0a0a] text-white cinematic-footer-wrapper font-sans border-t border-white/10">
-          {/* Ambient Light & Grid Background */}
+          {}
           <div className="footer-aurora absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 animate-footer-breathe rounded-[50%] blur-[80px] pointer-events-none z-0" />
           <div className="footer-bg-grid absolute inset-0 z-0 pointer-events-none" />
 
-          {/* Giant background text */}
+          {}
           <div className="absolute w-full left-0 -bottom-[1vh] flex justify-center overflow-hidden z-0 pointer-events-none select-none">
             <div
               ref={giantTextRef}
@@ -290,7 +286,7 @@ export function CinematicFooter() {
             </div>
           </div>
 
-          {/* 2. Main Center Content */}
+          {}
           <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 mt-20 w-full max-w-5xl mx-auto">
             <h2
               ref={headingRef}
@@ -301,12 +297,12 @@ export function CinematicFooter() {
               <span className="text-white/50">Start building.</span>
             </h2>
 
-            {/* Interactive Magnetic Pills Layout */}
+            {}
             <div
               ref={linksRef}
               className="flex flex-col items-center gap-6 w-full font-mono"
             >
-              {/* Primary Call To Action */}
+              {}
               <div className="flex flex-col items-center justify-center gap-8 w-full">
                 <MagneticButton
                   as="button"
@@ -320,7 +316,7 @@ export function CinematicFooter() {
                 </p>
               </div>
 
-              {/* Secondary Text Links */}
+              {}
               <div className="flex flex-wrap justify-center gap-3 md:gap-6 w-full mt-2 uppercase tracking-widest">
                 <MagneticButton
                   as="a"
@@ -354,14 +350,14 @@ export function CinematicFooter() {
             </div>
           </div>
 
-          {/* 3. Bottom Bar / Credits */}
+          {}
           <div className="relative z-20 w-full pb-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 font-mono">
-            {/* Copyright */}
+            {}
             <div className="text-white/40 text-[10px] md:text-xs font-medium tracking-widest uppercase order-2 md:order-1">
               © 2026 Auralith. All rights reserved.
             </div>
 
-            {/* "Made with Love" Badge */}
+            {}
             <div className="footer-glass-pill px-6 py-3 rounded-full flex items-center gap-2 order-1 md:order-2 cursor-default border-white/10">
               <span className="text-white/40 text-[10px] md:text-xs font-semibold uppercase tracking-widest">
                 Crafted with
@@ -373,7 +369,7 @@ export function CinematicFooter() {
                 by
               </span>
               <a 
-                href="https://shantau-biswas-portfolio.vercel.app" 
+                href="https://shantanu-biswas-portfolio.vercel.app"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest ml-1 hover:text-[#22c55e] transition-colors duration-300"
@@ -382,7 +378,7 @@ export function CinematicFooter() {
               </a>
             </div>
 
-            {/* Back to top */}
+            {}
             <MagneticButton
               as="button"
               onClick={scrollToTop}

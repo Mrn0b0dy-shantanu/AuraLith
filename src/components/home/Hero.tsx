@@ -4,7 +4,7 @@ import { geoEquirectangular, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import { useScroll as useThreeScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import Magnetic from "../ui/Magnetic";
+import Magnetic from "../../ui/magnetic";
 
 const ModelGraphic = ({
   id,
@@ -161,7 +161,7 @@ const aiModels = [
     id: "coding",
     name: "SYS.CODE_GEN",
     description: "Optimized for complex logic and architecture.",
-    color: "#22c55e", // green
+    color: "#22c55e", 
     x: "-38vw",
     y: "-22vh",
     rotate: -7.5,
@@ -185,7 +185,7 @@ const aiModels = [
     id: "research",
     name: "SYS.SYNTHESIS",
     description: "Deep data extraction and fact-checking.",
-    color: "#3b82f6", // blue
+    color: "#3b82f6", 
     x: "34vw",
     y: "-18vh",
     rotate: 5.2,
@@ -208,7 +208,7 @@ const aiModels = [
     id: "vision",
     name: "SYS.VISION",
     description: "Advanced image and spatial analysis.",
-    color: "#f59e0b", // amber
+    color: "#f59e0b", 
     x: "38vw",
     y: "24vh",
     rotate: 3.8,
@@ -231,7 +231,7 @@ const aiModels = [
     id: "audio",
     name: "SYS.AUDIO",
     description: "Real-time speech and acoustic processing.",
-    color: "#ec4899", // pink
+    color: "#ec4899", 
     x: "2vw",
     y: "42vh",
     rotate: -1.5,
@@ -254,7 +254,7 @@ const aiModels = [
     id: "reasoning",
     name: "SYS.REASONING",
     description: "Multi-step logical deduction and planning.",
-    color: "#06b6d4", // cyan
+    color: "#06b6d4", 
     x: "-34vw",
     y: "20vh",
     rotate: -4.2,
@@ -291,11 +291,11 @@ function ModelShowcase({ isVisible }: { isVisible: boolean }) {
 
   const getPosition = (model: any, index: number) => {
     if (isMobile || isTablet) {
-      // Semi-circle arching over the title for smaller screens
+      
       const angleDeg = 180 - index * 36;
       const angleRad = (angleDeg * Math.PI) / 180;
-      const rx = isMobile ? 28 : 40; // tighter vw to prevent cutoff
-      const ry = isMobile ? 38 : 30; // taller arch to avoid text
+      const rx = isMobile ? 28 : 40; 
+      const ry = isMobile ? 38 : 30; 
       return {
         x: `${Math.cos(angleRad) * rx}vw`,
         y: `${-Math.sin(angleRad) * ry - 5}vh`,
@@ -369,7 +369,7 @@ function ModelShowcase({ isVisible }: { isVisible: boolean }) {
               }}
             >
               <div className="w-56 md:w-64 border border-white/10 bg-[#0a0a0a]/80 backdrop-blur-md relative rounded-2xl flex flex-col group overflow-hidden transition-colors duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
-                {/* Subtle top border glow specific to the model */}
+                {}
                 <div
                   className="absolute top-0 left-0 w-full h-[2px] transition-opacity duration-300 group-hover:opacity-100 opacity-60"
                   style={{
@@ -378,7 +378,7 @@ function ModelShowcase({ isVisible }: { isVisible: boolean }) {
                   }}
                 />
 
-                {/* The Visual Identity Section */}
+                {}
                 <div className="h-28 w-full relative overflow-hidden bg-gradient-to-b from-white/[0.03] to-transparent p-4 flex flex-col justify-between border-b border-white/[0.05]">
                   <div
                     className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 blur-2xl"
@@ -393,7 +393,7 @@ function ModelShowcase({ isVisible }: { isVisible: boolean }) {
                     isVisible={isVisible}
                   />
 
-                  {/* Card Header overlaying graphic */}
+                  {}
                   <div className="flex justify-between items-start relative z-10">
                     <div className="flex items-center gap-2">
                       <div
@@ -418,7 +418,7 @@ function ModelShowcase({ isVisible }: { isVisible: boolean }) {
                     {model.description}
                   </p>
 
-                  {/* Layered inner stats section */}
+                  {}
                   <div className="bg-white/[0.02] rounded-lg p-3 flex flex-col gap-2.5 border border-white/[0.05] group-hover:bg-white/[0.04] transition-colors duration-300">
                     {model.stats.map((stat, idx) => (
                       <div key={idx} className="flex gap-2 items-center">
@@ -473,7 +473,7 @@ function ModelShowcase({ isVisible }: { isVisible: boolean }) {
 function Globe({ scrollYProgress }: { scrollYProgress: any }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // As user scrolls down, globe moves up slowly, then scrolls out with the content
+  
   const y = useTransform(scrollYProgress, [0, 0.7, 1], ["70%", "40%", "-100%"]);
   const opacity = useTransform(scrollYProgress, [0.4, 0.85], [1, 0]);
 
@@ -487,7 +487,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
     let points: { x: number; y: number; z: number; isLand: boolean }[] = [];
     let phi = 0;
 
-    // Generate initial uniform points so the globe is visible immediately
+    
     const numPoints = 12000;
     const goldenRatio = (1 + Math.sqrt(5)) / 2;
     for (let i = 0; i < numPoints; i++) {
@@ -501,7 +501,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
       }
     }
 
-    // Data Lines State
+    
     interface DataLine {
       startX: number;
       startY: number;
@@ -537,12 +537,12 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
 
       const now = Date.now();
       if (now - lastRippleTime > 100) {
-        // Throttle ripples
+        
         const cx = 1200 / 2;
         const cy = 1200 / 2;
         const radius = 1200 * 0.42;
 
-        // Check if mouse is over the globe
+        
         const dist = Math.sqrt(
           Math.pow(mousePos.x - cx, 2) + Math.pow(mousePos.y - cy, 2),
         );
@@ -574,14 +574,13 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
 
     const initGlobe = async () => {
       try {
-        // 1. Fetch Earth topology
         const response = await fetch(
-          "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json",
+          "https://unpkg.com/world-atlas/countries-110m.json"
         );
         const topology = await response.json();
         const world = feature(topology, topology.objects.countries);
 
-        // 2. Draw to offscreen canvas to get land/water map
+        
         const mapWidth = 512;
         const mapHeight = 256;
         const offscreen = document.createElement("canvas");
@@ -603,7 +602,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
 
         const imageData = offCtx.getImageData(0, 0, mapWidth, mapHeight).data;
 
-        // 3. Generate points on a sphere (Fibonacci lattice)
+        
         const numPoints = 12000;
         const newPoints = [];
         const goldenRatio = (1 + Math.sqrt(5)) / 2;
@@ -631,7 +630,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
             }
           }
 
-          // Density filtering: Denser in continental regions, sparse in ocean
+          
           if (isLand) {
             if (Math.random() > 0.15)
               newPoints.push({ x, y: y_coord, z, isLand });
@@ -665,7 +664,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
       const cx = logicalWidth / 2;
       const cy = logicalHeight / 2;
 
-      // Soft background glow
+      
       const gradient = ctx.createRadialGradient(
         cx,
         cy,
@@ -693,7 +692,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
         return { x: x1, y: y2, z: z2, isLand: p.isLand };
       });
 
-      // Sort back-to-front (z2 > 0 is front, z2 < 0 is back)
+      
       projectedPoints.sort((a, b) => a.z - b.z);
 
       for (const p of projectedPoints) {
@@ -704,7 +703,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
         const screenX = cx + p.x * radius * scale;
         const screenY = cy + p.y * radius * scale;
 
-        const depth = (p.z + 1) / 2; // 0 (back) to 1 (front)
+        const depth = (p.z + 1) / 2; 
 
         const opacity = p.isLand ? 0.1 + depth * 0.9 : 0.05 + depth * 0.3;
 
@@ -714,8 +713,8 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
         ctx.fillRect(screenX - size / 2, screenY - size / 2, size, size);
       }
 
-      // --- DATA LINES LOGIC ---
-      // Spawn new lines
+      
+      
       if (Math.random() > 0.95 && dataLines.length < 15) {
         const frontPoints = projectedPoints.filter((p) => p.z > 0 && p.isLand);
         if (frontPoints.length > 1) {
@@ -733,7 +732,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
           const targetX = cx + targetPoint.x * radius * targetScale;
           const targetY = cy + targetPoint.y * radius * targetScale;
 
-          // Create an arc that curves outward from the globe
+          
           const midX = (startX + targetX) / 2;
           const midY = (startY + targetY) / 2;
 
@@ -744,7 +743,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
           const dist = Math.sqrt(
             Math.pow(targetX - startX, 2) + Math.pow(targetY - startY, 2),
           );
-          const arcHeight = dist * 0.4; // Curve height based on distance
+          const arcHeight = dist * 0.4; 
 
           const controlX = midX + (vecX / vecLen) * arcHeight;
           const controlY = midY + (vecY / vecLen) * arcHeight;
@@ -754,7 +753,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
             "251, 146, 60",
             "56, 189, 248",
             "167, 139, 250",
-          ]; // pink, orange, sky, purple
+          ]; 
           const color = colors[Math.floor(Math.random() * colors.length)];
 
           dataLines.push({
@@ -770,7 +769,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
             color,
           });
 
-          // Ripple at spawn point
+          
           ripples.push({
             x: startX,
             y: startY,
@@ -782,7 +781,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
         }
       }
 
-      // Update and draw lines
+      
       ctx.lineCap = "round";
       for (let i = dataLines.length - 1; i >= 0; i--) {
         const line = dataLines[i];
@@ -835,17 +834,17 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
 
-            // Opacity fades towards the tail
+            
             const opacity = Math.pow(j / segments, 2);
             ctx.strokeStyle = `rgba(${line.color}, ${opacity})`;
             ctx.lineWidth = 1 + (j / segments) * 1.5;
             ctx.stroke();
           }
-          ctx.shadowBlur = 0; // reset
+          ctx.shadowBlur = 0; 
         }
       }
 
-      // Update and draw ripples
+      
       for (let i = ripples.length - 1; i >= 0; i--) {
         const r = ripples[i];
         r.radius += 0.4;
@@ -860,11 +859,11 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
         ctx.lineWidth = 1.5;
         ctx.stroke();
       }
-      // --- END DATA LINES LOGIC ---
+      
 
       ctx.restore();
 
-      phi += 0.0015; // Slow, continuous, mechanical rotation
+      phi += 0.0015; 
       animationFrameId = requestAnimationFrame(render);
     };
 
@@ -883,7 +882,7 @@ function Globe({ scrollYProgress }: { scrollYProgress: any }) {
       style={{ y, opacity }}
       className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] pointer-events-none z-10 flex items-center justify-center"
     >
-      {/* Mathematical / Data Viz Grid Overlay */}
+      {}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
         <div className="absolute w-[600px] h-[600px] rounded-full border border-white/[0.06]" />
         <div className="absolute w-[900px] h-[900px] rounded-full border border-white/[0.04]" />
@@ -925,13 +924,13 @@ export default function Hero() {
       className="relative w-full h-[125vh] font-sans selection:bg-[#22c55e]/30"
     >
       <div className="sticky top-[8vh] w-full h-screen flex flex-col items-center justify-center">
-        {/* Globe with Parallax */}
+        {}
         <Globe scrollYProgress={scrollYProgress} />
 
-        {/* Model Showcase (Triggered by Hover) */}
+        {}
         <ModelShowcase isVisible={isHovered} />
 
-        {/* Main Content */}
+        {}
         <motion.div
           style={{ opacity: contentOpacity, y: contentY }}
           className="relative z-20 flex flex-col items-center text-center px-4 w-full max-w-7xl mt-[-10vh]"
@@ -983,14 +982,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-xl md:text-3xl text-white/90 mt-8 z-30 relative font-light tracking-wide max-w-4xl leading-relaxed"
           >
-            We empower humans to create stories at the Pulse of{" "}
+            We build infrastructure that operates at the absolute limit of{" "}
             <br className="hidden md:block" />
             <motion.span
               className="relative inline-block font-normal text-white mx-2 cursor-default"
               whileHover={{ scale: 1.05, color: "#22c55e" }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              Culture
+              Logic
               <motion.svg
                 className="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)] text-[#22c55e]/80 pointer-events-none"
                 viewBox="0 0 100 40"
@@ -1061,7 +1060,7 @@ export default function Hero() {
                 />
               </motion.svg>
             </motion.span>{" "}
-            of AI.
+            of execution.
           </motion.p>
 
           <Magnetic>
@@ -1080,7 +1079,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="mt-14 px-8 py-4 bg-[#22c55e] text-white rounded-full font-semibold text-lg z-30 relative shadow-[0_0_30px_rgba(34,197,94,0.3)]"
             >
-              Join the waitlist
+              Initialize access
             </motion.button>
           </Magnetic>
         </motion.div>
