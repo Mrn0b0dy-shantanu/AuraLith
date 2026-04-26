@@ -8,11 +8,7 @@ const noiseSvg = `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
 export function Overlay() {
   const { inputText } = useStore();
 
-  useEffect(() => {
-    
-  }, []);
-
-
+  useEffect(() => {}, []);
 
   const textVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, y: 40 },
@@ -40,7 +36,10 @@ export function Overlay() {
         >
           {}
           <div className="absolute inset-0 rounded-4xl overflow-hidden pointer-events-none">
-            <div className="absolute inset-0 opacity-[0.03] mix-blend-screen" style={{ backgroundImage: noiseSvg }} />
+            <div
+              className="absolute inset-0 opacity-[0.03] mix-blend-screen"
+              style={{ backgroundImage: noiseSvg }}
+            />
             <div className="absolute inset-0 bg-gradient-to-br from-[#22c55e]/[0.02] via-transparent to-[#8b5cf6]/[0.02]" />
           </div>
 
@@ -75,7 +74,10 @@ export function Overlay() {
         >
           {}
           <div className="absolute inset-0 rounded-4xl overflow-hidden pointer-events-none">
-            <div className="absolute inset-0 opacity-[0.03] mix-blend-screen" style={{ backgroundImage: noiseSvg }} />
+            <div
+              className="absolute inset-0 opacity-[0.03] mix-blend-screen"
+              style={{ backgroundImage: noiseSvg }}
+            />
             <div className="absolute inset-0 bg-gradient-to-br from-[#22c55e]/[0.02] via-transparent to-[#8b5cf6]/[0.02]" />
           </div>
 
@@ -110,7 +112,10 @@ export function Overlay() {
         >
           {}
           <div className="absolute inset-0 rounded-4xl overflow-hidden pointer-events-none">
-            <div className="absolute inset-0 opacity-[0.03] mix-blend-screen" style={{ backgroundImage: noiseSvg }} />
+            <div
+              className="absolute inset-0 opacity-[0.03] mix-blend-screen"
+              style={{ backgroundImage: noiseSvg }}
+            />
             <div className="absolute inset-0 bg-gradient-to-br from-[#22c55e]/[0.02] via-transparent to-[#8b5cf6]/[0.02]" />
           </div>
 
@@ -127,8 +132,8 @@ export function Overlay() {
               Output
             </h3>
             <p className="text-white/40 leading-relaxed font-mono text-sm md:text-base font-light">
-              [ Inference complete. Data synthesized, compressed, and
-              delivered before standard APIs even wake up. ]
+              [ Inference complete. Data synthesized, compressed, and delivered
+              before standard APIs even wake up. ]
             </p>
           </div>
         </motion.div>
@@ -145,7 +150,10 @@ export function Overlay() {
         >
           {}
           <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
-            <div className="absolute inset-0 opacity-[0.03] mix-blend-screen" style={{ backgroundImage: noiseSvg }} />
+            <div
+              className="absolute inset-0 opacity-[0.03] mix-blend-screen"
+              style={{ backgroundImage: noiseSvg }}
+            />
             <div className="absolute inset-0 bg-gradient-to-br from-[#22c55e]/[0.02] via-transparent to-[#8b5cf6]/[0.02]" />
           </div>
 
@@ -154,9 +162,7 @@ export function Overlay() {
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-white/30 z-10" />
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-white/30 z-10" />
 
-          <div className="absolute top-4 right-4 text-white/20 font-mono text-xs z-10">
-            
-          </div>
+          <div className="absolute top-4 right-4 text-white/20 font-mono text-xs z-10"></div>
 
           <div className="relative z-10">
             <h2 className="text-xs tracking-[0.4em] text-[#22c55e] uppercase mb-12 font-mono font-medium border-b border-white/[0.05] pb-4 inline-block">
@@ -167,14 +173,14 @@ export function Overlay() {
                 <span className="text-white">{inputText}</span>
               ) : (
                 <span className="text-white/20 font-mono text-4xl">
-                  [ System idle. Awaiting command... ]
+                  [ Output Give, Client Satisfied... ]
                 </span>
               )}
             </div>
             <div className="flex items-center justify-center gap-4">
               <div className="h-px bg-white/10 flex-1 max-w-[100px]" />
               <p className="text-[#22c55e] text-xs tracking-[0.2em] font-mono uppercase font-light">
-                Execution verified. Latency: 0.8ms.
+                Execution verified
               </p>
               <div className="h-px bg-white/10 flex-1 max-w-[100px]" />
             </div>
